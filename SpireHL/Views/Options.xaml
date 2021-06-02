@@ -1,0 +1,310 @@
+﻿<UserControl x:Class="SpireHL.Views.Options"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:SpireHL.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="1200">
+
+    <Grid Margin="5">
+        <!-- step 1 -->
+        <DockPanel>
+            <DockPanel.Style>
+                <Style TargetType="DockPanel">
+                    <Setter Property="Visibility"
+                            Value="Visible" />
+                </Style>
+            </DockPanel.Style>
+            <StackPanel Orientation="Vertical"
+                        DockPanel.Dock="Right">
+                <Button Height="35"
+                        ToolTip="Save Changes"
+                        x:Name="SaveButton"
+                        Content="Save"
+                        IsEnabled="{Binding CanExecuteSaveCommand}"
+                        Command="{Binding SaveCommand}"
+                        Style="{StaticResource PrimaryButton}"
+                        Margin="5,0,10,5"
+                        Width="83" />
+            </StackPanel>
+
+            <ScrollViewer Margin="0,0,5,0"
+                          VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Auto">
+                <StackPanel DockPanel.Dock="Left"
+                            Width="Auto">
+                    <Label DockPanel.Dock="Left"
+                           Foreground="White"
+                           FontSize="16"
+                           Margin="0,0,0,0"
+                           Content="Catalog Settings: " />
+                    <Separator />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250" />
+                            <ColumnDefinition Width="600" />
+                            <ColumnDefinition Width="250" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBlock Grid.Column="0"
+                                   Text="Catalog Export Path: "
+                                   Foreground="White"
+                                   FontSize="16"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin="25,0,0,0" />
+                        <TextBox Grid.Column="1"
+                                 MinWidth="500"
+                                 MaxWidth="500"
+                                 Height="35"
+                                 Margin="25, 5"
+                                 HorizontalAlignment="Left"
+                                 VerticalContentAlignment="Center"
+                                 Style="{StaticResource TextboxCustomStyle}"
+                                 IsReadOnly="{Binding SavePermission}"
+                                 Text="{Binding CatalogExportPath, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" />
+                        <Button Width="120"
+                                HorizontalAlignment="Left"
+                                Grid.Column="2"
+                                Height="28"
+                                ToolTip="Set folder path for export catalog"
+                                x:Name="SetPath"
+                                Content="Set Export Path"
+                                Command="{Binding SetCatalogPathCommand}"
+                                Style="{StaticResource SecondaryButton}" />
+                    </Grid>
+
+                    <!--Commercial Hub settings-->
+                    <Label DockPanel.Dock="Left"
+                           Foreground="White"
+                           FontSize="16"
+                           Margin="0,0,0,0"
+                           Content="Commercial Hub Settings:" />
+                    <Separator />
+
+                    <!--Lowes Canada Import Path-->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250" />
+                            <ColumnDefinition Width="600" />
+                            <ColumnDefinition Width="250" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0"
+                                   Text="Lowes Canada Import Path: "
+                                   Foreground="White"
+                                   FontSize="16"
+                                   VerticalAlignment="Center"
+                                   Margin="25,0,0,0" />
+                        <TextBox Grid.Column="1"
+                                 MinWidth="500"
+                                 MaxWidth="500"
+                                 Height="35"
+                                 Margin="25, 5"
+                                 HorizontalAlignment="Left"
+                                 VerticalContentAlignment="Center"
+                                 Style="{StaticResource TextboxCustomStyle}"
+                                 IsReadOnly="{Binding SavePermission}"
+                                 Text="{Binding LowesCanadaImportPath, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" />
+                        <Button Width="180"
+                                HorizontalAlignment="Left"
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Height="28"
+                                ToolTip="Set folder path for export catalog"
+                                x:Name="SetLowesCanadaImportPath"
+                                Content="Set Lowes Ca Import Path"
+                                Command="{Binding SetLowesCanadaPathCommand}"
+                                CommandParameter="LowesCanadaImportPath"
+                                Style="{StaticResource SecondaryButton}" />
+                    </Grid>
+                    <!--Lowes Canada Export Path-->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250" />
+                            <ColumnDefinition Width="600" />
+                            <ColumnDefinition Width="250" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0"
+                                   Text="Lowes Canada Export Path: "
+                                   Foreground="White"
+                                   FontSize="16"
+                                   VerticalAlignment="Center"
+                                   Margin="25,0,0,0" />
+                        <TextBox Grid.Column="1"
+                                 MinWidth="500"
+                                 MaxWidth="500"
+                                 Height="35"
+                                 Margin="25, 5"
+                                 HorizontalAlignment="Left"
+                                 VerticalContentAlignment="Center"
+                                 Style="{StaticResource TextboxCustomStyle}"
+                                 IsReadOnly="{Binding SavePermission}"
+                                 Text="{Binding LowesCanadaExportPath, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" />
+                        <Button Width="180"
+                                HorizontalAlignment="Left"
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Height="28"
+                                ToolTip="Set folder path for export catalog"
+                                x:Name="SetLowesExportCanadaPath"
+                                Content="Set Lowes Ca Export Path"
+                                Command="{Binding SetLowesCanadaPathCommand}"
+                                CommandParameter="LowesCanadaExportPath"
+                                Style="{StaticResource SecondaryButton}" />
+                    </Grid>
+                   
+                    
+                </StackPanel>
+            </ScrollViewer>
+        </DockPanel>
+        </Grid>
+        <!--<Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                Grid.ColumnSpan="4"
+                Background="LightBlue" />
+        <StackPanel Grid.Row="0"
+                    Grid.Column="4"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Height="40"
+                    Width="Auto">
+            <StackPanel Orientation="Horizontal">
+                <Button Height="35"
+                        ToolTip="Save Changes"
+                        x:Name="SaveButton"
+                        Content="Save"
+                        IsEnabled="{Binding CanExecuteSaveCommand}"
+                        Command="{Binding SaveCommand}"
+                        Style="{StaticResource PrimaryButton}"
+                        Margin="5,0,10,5"
+                        Width="83" />
+            </StackPanel>
+        </StackPanel>
+
+        <ScrollViewer Margin="0,0,0,0"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Auto"
+                      Grid.Row="1"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="4">
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="420" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="80" />
+                    </Grid.RowDefinitions>
+
+                    <DockPanel Height="25">
+                        <Label DockPanel.Dock="Left"
+                               Content="SomeText" />
+                        <Separator />
+                    </DockPanel>
+                    <Grid Grid.Row="0"
+                          VerticalAlignment="Center">
+                        <TextBlock Grid.Column="0"
+                                   Text="Catalog Path: "
+                                   Foreground="White"
+                                   FontSize="16"
+                                   VerticalAlignment="Center"
+                                   Margin="15,0,0,0" />
+                        <TextBox Grid.Column="0"
+                                 MinWidth="200"
+                                 MaxWidth="200"
+                                 Height="35"
+                                 Margin="25, 5"
+                                 HorizontalAlignment="Right"
+                                 VerticalContentAlignment="Center"
+                                 Style="{StaticResource TextboxCustomStyle}"
+                                 IsReadOnly="{Binding SavePermission}"
+                                 Text="{Binding CatalogExportPath, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" />
+
+                    </Grid>
+
+                    <Button Width="100"
+                            HorizontalAlignment="Left"
+                            Grid.Column="1"
+                            Height="28"
+                            ToolTip="Set folder path for export catalog"
+                            x:Name="SetPath"
+                            Content="Set Path"
+                            Command="{Binding SetCatalogPathCommand}"
+                            Style="{StaticResource SecondaryButton}" />
+
+                    <Grid Grid.Row="1"
+                          VerticalAlignment="Center">
+                        <TextBlock Grid.Column="0"
+                                   Text="Lowes Canada Path: "
+                                   Foreground="White"
+                                   FontSize="16"
+                                   VerticalAlignment="Center"
+                                   Margin="15,0,0,0" />
+                        <TextBox Grid.Column="0"
+                                 MinWidth="200"
+                                 MaxWidth="200"
+                                 Height="35"
+                                 Margin="25, 5"
+                                 HorizontalAlignment="Right"
+                                 VerticalContentAlignment="Center"
+                                 Style="{StaticResource TextboxCustomStyle}"
+                                 IsReadOnly="{Binding SavePermission}"
+                                 Text="{Binding LowesCanadaExportPath, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" />
+
+                    </Grid>
+
+                    <Button Width="100"
+                            HorizontalAlignment="Left"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Height="28"
+                            ToolTip="Set folder path for export catalog"
+                            x:Name="SetLowesCanadaPath"
+                            Content="Set Lowes Ca Path"
+                            Command="{Binding SetLowesCanadaPathCommand}"
+                            Style="{StaticResource SecondaryButton}" />
+
+                    --><!--<Grid Grid.Row="1"
+                          Grid.Column="0"
+                          VerticalAlignment="Center">
+                        <TextBlock Text="Table: "
+                                   FontSize="16"
+                                   VerticalAlignment="Center"
+                                   Margin="15,0,0,0" />
+                        <TextBox MinWidth="200"
+                                 MaxWidth="200"
+                                 Height="35"
+                                 Margin="25, 5"
+                                 HorizontalAlignment="Right"
+                                 VerticalContentAlignment="Center"
+                                 IsReadOnly="{Binding SavePermission}"
+                                 Style="{StaticResource TextboxCustomStyle}"
+                                 Text="{Binding DestinationTable, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay,ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" />
+                    </Grid>
+                    --><!--
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>-->
+</UserControl>

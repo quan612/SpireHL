@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D3256CE0-6974-4069-B11B-2F278C33DEC6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SpireHL</RootNamespace>
+    <AssemblyName>SpireHL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowedReferenceRelatedFileExtensions>
+      <!-- Prevent default XML and PDB files copied to output in RELEASE. 
+           Only *.allowedextension files will be included, which doesn't exist in my case.
+       -->
+      *.pdb;
+      *.xml
+    </AllowedReferenceRelatedFileExtensions>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowedReferenceRelatedFileExtensions>
+      <!-- Prevent default XML and PDB files copied to output in RELEASE. 
+           Only *.allowedextension files will be included, which doesn't exist in my case.
+       -->
+      *.pdb;
+      *.xml
+    </AllowedReferenceRelatedFileExtensions>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
+      <HintPath>..\packages\Common.Logging.1.2.0\lib\1.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.5\lib\net46\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="DryIoc, Version=4.5.1.0, Culture=neutral, PublicKeyToken=dfbf2bd50fcf7768, processorArchitecture=MSIL">
+      <HintPath>..\packages\DryIoc.dll.4.5.1\lib\net45\DryIoc.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WPF4, Version=4.1.27.22692, Culture=neutral, PublicKeyToken=1673db7d5906b0ad, processorArchitecture=MSIL">
+      <HintPath>..\packages\GalaSoft.MvvmLight.WPF4.1.0.2\lib\GalaSoft.MvvmLight.Extras.WPF4.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WPF4, Version=4.1.27.22692, Culture=neutral, PublicKeyToken=63eb5c012e0b3c1c, processorArchitecture=MSIL">
+      <HintPath>..\packages\GalaSoft.MvvmLight.WPF4.1.0.2\lib\GalaSoft.MvvmLight.WPF4.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.AvalonEdit, Version=5.0.1.0, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
+      <HintPath>..\packages\AvalonEdit.5.0.2\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="Prism, Version=8.0.0.1909, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.8.0.0.1909\lib\net45\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.DryIoc.Wpf, Version=8.0.0.1909, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.DryIoc.8.0.0.1909\lib\net461\Prism.DryIoc.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=8.0.0.1909, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.8.0.0.1909\lib\net461\Prism.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spring.Core.1.3.2\lib\net40\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xceed.Wpf.Toolkit.1.0.0.1\lib\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Base\RibbonNames.cs" />
+    <Compile Include="Base\RegionNames.cs" />
+    <Compile Include="Base\StaticUtils.cs" />
+    <Compile Include="Dialogs\Confirmation.xaml.cs">
+      <DependentUpon>Confirmation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ExceptionDialog.xaml.cs">
+      <DependentUpon>ExceptionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ConfirmationViewModel.cs" />
+    <Compile Include="Dialogs\ExceptionDialogViewModel.cs" />
+    <Compile Include="Dialogs\SummaryDialog.xaml.cs">
+      <DependentUpon>SummaryDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SummaryDialogViewModel.cs" />
+    <Compile Include="Dialogs\UserOptionsCatalogDialog.xaml.cs">
+      <DependentUpon>UserOptionsCatalogDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\UserOptionsCatalogDialogViewModel.cs" />
+    <Compile Include="ViewModels\OptionsViewModel.cs" />
+    <Compile Include="ViewModels\HullWindowViewModel.cs" />
+    <Compile Include="Views\Options.xaml.cs">
+      <DependentUpon>Options.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HullWindow.xaml.cs">
+      <DependentUpon>HullWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Dialogs\Confirmation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ExceptionDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\SummaryDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\UserOptionsCatalogDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\AlternateRibbonApplicationMenu.cs" />
+    <Compile Include="Base\Regions\StackPanelRegionAdapter.cs" />
+    <Compile Include="Base\SlimRibbonApplicationMenu.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Themes\Textbox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\DataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Options.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HullWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\128\Button-Blank-Green-icon.png" />
+    <Resource Include="Images\128\dialog-error-4.png" />
+    <Resource Include="Images\128\dialog-warning.png" />
+    <Resource Include="Images\128\edit-find-3.png" />
+    <Resource Include="Images\128\editor-country.png" />
+    <Resource Include="Images\128\editor-markettype.png" />
+    <Resource Include="Images\128\FormBackGround.png" />
+    <Resource Include="Images\128\FormBackground4.png" />
+    <Resource Include="Images\128\go-next-4.png" />
+    <Resource Include="Images\128\phone-conference.png" />
+    <Resource Include="Images\128\phone-transfer.png" />
+    <Resource Include="Images\128\script-error.png" />
+    <Resource Include="Images\16\add.png" />
+    <Resource Include="Images\16\ApplicationExit.png" />
+    <Resource Include="Images\16\applications-internet-4.png" />
+    <Resource Include="Images\16\applications-utilities-3.png" />
+    <Resource Include="Images\16\audio-headset-add.png" />
+    <Resource Include="Images\16\audio-headset.png" />
+    <Resource Include="Images\16\BooleanIcon.png" />
+    <Resource Include="Images\16\Button-Blank-Green-icon.png" />
+    <Resource Include="Images\16\call-start add.png" />
+    <Resource Include="Images\16\call-start.png" />
+    <Resource Include="Images\16\call-stop.png" />
+    <Resource Include="Images\16\cancel.png" />
+    <Resource Include="Images\16\check-green.png" />
+    <Resource Include="Images\16\clock.png" />
+    <Resource Include="Images\16\configure-4.png" />
+    <Resource Include="Images\16\copy.png" />
+    <Resource Include="Images\16\DateTimeIcon.png" />
+    <Resource Include="Images\16\DecimalIcon.png" />
+    <Resource Include="Images\16\dialog-error-4.png" />
+    <Resource Include="Images\16\dialog-warning.png" />
+    <Resource Include="Images\16\document-save-as-3.png" />
+    <Resource Include="Images\16\edit-find-3.png" />
+    <Resource Include="Images\16\editor-country add.png" />
+    <Resource Include="Images\16\editor-country.png" />
+    <Resource Include="Images\16\editor-markettype add.png" />
+    <Resource Include="Images\16\editor-markettype.png" />
+    <Resource Include="Images\16\EnumIcon.png" />
+    <Resource Include="Images\16\exclaimation-circle-red.png" />
+    <Resource Include="Images\16\folder-development add.png" />
+    <Resource Include="Images\16\folder-development.png" />
+    <Resource Include="Images\16\folder-html.png" />
+    <Resource Include="Images\16\folder-new.png" />
+    <Resource Include="Images\16\folder-not-empty.png" />
+    <Resource Include="Images\16\folder-saved-search.png" />
+    <Resource Include="Images\16\gears.png" />
+    <Resource Include="Images\16\go-first-view.png" />
+    <Resource Include="Images\16\go-jump-2.png" />
+    <Resource Include="Images\16\go-last-view.png" />
+    <Resource Include="Images\16\go-next-4.png" />
+    <Resource Include="Images\16\go-next-view.png" />
+    <Resource Include="Images\16\go-previous-view.png" />
+    <Resource Include="Images\16\hammer.png" />
+    <Resource Include="Images\16\help-contents.png" />
+    <Resource Include="Images\16\help.png" />
+    <Resource Include="Images\16\IntegerIcon.png" />
+    <Resource Include="Images\16\item-delete.png" />
+    <Resource Include="Images\16\item-edit.png" />
+    <Resource Include="Images\16\konqueror-2 add.png" />
+    <Resource Include="Images\16\konqueror-2.png" />
+    <Resource Include="Images\16\korganizer-3 add.png" />
+    <Resource Include="Images\16\korganizer-3.png" />
+    <Resource Include="Images\16\log.png" />
+    <Resource Include="Images\16\logout-icon.png" />
+    <Resource Include="Images\16\mail-send.png" />
+    <Resource Include="Images\16\media-playback-pause-6.png" />
+    <Resource Include="Images\16\media-playback-pause.png" />
+    <Resource Include="Images\16\media-playback-start-6.png" />
+    <Resource Include="Images\16\message add.png" />
+    <Resource Include="Images\16\message.png" />
+    <Resource Include="Images\16\multimedia-volume-control-2.png" />
+    <Resource Include="Images\16\phone-conference.png" />
+    <Resource Include="Images\16\phone-transfer.png" />
+    <Resource Include="Images\16\RibbonFileMenu.png" />
+    <Resource Include="Images\16\save.png" />
+    <Resource Include="Images\16\script-error.png" />
+    <Resource Include="Images\16\system-search-4.png" />
+    <Resource Include="Images\16\TextIcon.png" />
+    <Resource Include="Images\16\user-group-new.png" />
+    <Resource Include="Images\16\user-group.png" />
+    <Resource Include="Images\16\view-refresh-5.png" />
+    <Resource Include="Images\16\WindowClose.png" />
+    <Resource Include="Images\16\WindowMaximize.png" />
+    <Resource Include="Images\16\WindowMinimize.png" />
+    <Resource Include="Images\16\WindowRestore.png" />
+    <Resource Include="Images\32\add.png" />
+    <Resource Include="Images\32\applications-internet-4.png" />
+    <Resource Include="Images\32\applications-internet-5.png" />
+    <Resource Include="Images\32\applications-utilities-3.png" />
+    <Resource Include="Images\32\audio-headset-add.png" />
+    <Resource Include="Images\32\audio-headset.png" />
+    <Resource Include="Images\32\BooleanIcon.png" />
+    <Resource Include="Images\32\Button-Blank-Green-icon.png" />
+    <Resource Include="Images\32\call-start add.png" />
+    <Resource Include="Images\32\call-start.png" />
+    <Resource Include="Images\32\call-stop.png" />
+    <Resource Include="Images\32\cancel.png" />
+    <Resource Include="Images\32\check-green.png" />
+    <Resource Include="Images\32\clock.png" />
+    <Resource Include="Images\32\configure-4.png" />
+    <Resource Include="Images\32\copy.png" />
+    <Resource Include="Images\32\DateTimeIcon.png" />
+    <Resource Include="Images\32\DecimalIcon.png" />
+    <Resource Include="Images\32\dialog-error-4.png" />
+    <Resource Include="Images\32\dialog-warning.png" />
+    <Resource Include="Images\32\document-save-as-3.png" />
+    <Resource Include="Images\32\edit-find-3.png" />
+    <Resource Include="Images\32\editor-country add.png" />
+    <Resource Include="Images\32\editor-country.png" />
+    <Resource Include="Images\32\editor-market-type.png" />
+    <Resource Include="Images\32\editor-markettype add.png" />
+    <Resource Include="Images\32\editor-province.png" />
+    <Resource Include="Images\32\EnumIcon.png" />
+    <Resource Include="Images\32\exclaimation-circle-red.png" />
+    <Resource Include="Images\32\folder-development add.png" />
+    <Resource Include="Images\32\folder-development.png" />
+    <Resource Include="Images\32\folder-html.png" />
+    <Resource Include="Images\32\folder-new.png" />
+    <Resource Include="Images\32\folder-not-empty.png" />
+    <Resource Include="Images\32\folder-saved-search.png" />
+    <Resource Include="Images\32\gears.png" />
+    <Resource Include="Images\32\hammer.png" />
+    <Resource Include="Images\32\help-contents.png" />
+    <Resource Include="Images\32\help.png" />
+    <Resource Include="Images\32\IntegerIcon.png" />
+    <Resource Include="Images\32\item-delete.png" />
+    <Resource Include="Images\32\item-edit.png" />
+    <Resource Include="Images\32\konqueror-2 add.png" />
+    <Resource Include="Images\32\konqueror-2.png" />
+    <Resource Include="Images\32\korganizer-3 add.png" />
+    <Resource Include="Images\32\korganizer-3.png" />
+    <Resource Include="Images\32\log.png" />
+    <Resource Include="Images\32\mail-send.png" />
+    <Resource Include="Images\32\media-eject-7.png" />
+    <Resource Include="Images\32\media-playback-pause-6.png" />
+    <Resource Include="Images\32\media-playback-pause-8.png" />
+    <Resource Include="Images\32\media-playback-pause.png" />
+    <Resource Include="Images\32\media-playback-start-6.png" />
+    <Resource Include="Images\32\media-playback-start-8.png" />
+    <Resource Include="Images\32\media-playback-stop-8.png" />
+    <Resource Include="Images\32\media-record-6.png" />
+    <Resource Include="Images\32\media-seek-backward-8.png" />
+    <Resource Include="Images\32\media-seek-forward-8.png" />
+    <Resource Include="Images\32\media-skip-backward-8.png" />
+    <Resource Include="Images\32\media-skip-forward-8.png" />
+    <Resource Include="Images\32\message add.png" />
+    <Resource Include="Images\32\message.png" />
+    <Resource Include="Images\32\multimedia-volume-control-2.png" />
+    <Resource Include="Images\32\phone-conference.png" />
+    <Resource Include="Images\32\phone-transfer.png" />
+    <Resource Include="Images\32\save.png" />
+    <Resource Include="Images\32\script-error.png" />
+    <Resource Include="Images\32\TextIcon.png" />
+    <Resource Include="Images\32\user-group-new.png" />
+    <Resource Include="Images\32\user-group.png" />
+    <Resource Include="Images\32\view-list-details.png" />
+    <Resource Include="Images\32\view-refresh-5.png" />
+    <Resource Include="Images\64\add.png" />
+    <Resource Include="Images\64\applications-internet-4.png" />
+    <Resource Include="Images\64\applications-utilities-3.png" />
+    <Resource Include="Images\64\appointment-soon.png" />
+    <Resource Include="Images\64\arx.png" />
+    <Resource Include="Images\64\audio-headset-add.png" />
+    <Resource Include="Images\64\audio-headset.png" />
+    <Resource Include="Images\64\BooleanIcon.png" />
+    <Resource Include="Images\64\Button-Blank-Green-icon.png" />
+    <Resource Include="Images\64\call-start add.png" />
+    <Resource Include="Images\64\call-start.png" />
+    <Resource Include="Images\64\call-stop.png" />
+    <Resource Include="Images\64\cancel.png" />
+    <Resource Include="Images\64\check-green.png" />
+    <Resource Include="Images\64\clock.png" />
+    <Resource Include="Images\64\configure-4.png" />
+    <Resource Include="Images\64\copy.png" />
+    <Resource Include="Images\64\DateTimeIcon.png" />
+    <Resource Include="Images\64\DecimalIcon.png" />
+    <Resource Include="Images\64\dialog-error-4.png" />
+    <Resource Include="Images\64\dialog-warning.png" />
+    <Resource Include="Images\64\document-save-as-3.png" />
+    <Resource Include="Images\64\edit-find-3.png" />
+    <Resource Include="Images\64\editor-country add.png" />
+    <Resource Include="Images\64\editor-country.png" />
+    <Resource Include="Images\64\editor-markettype add.png" />
+    <Resource Include="Images\64\editor-markettype.png" />
+    <Resource Include="Images\64\EnumIcon.png" />
+    <Resource Include="Images\64\exclaimation-circle-red.png" />
+    <Resource Include="Images\64\folder-development add.png" />
+    <Resource Include="Images\64\folder-development.png" />
+    <Resource Include="Images\64\folder-html.png" />
+    <Resource Include="Images\64\folder-new.png" />
+    <Resource Include="Images\64\folder-not-empty.png" />
+    <Resource Include="Images\64\folder-saved-search.png" />
+    <Resource Include="Images\64\gears.png" />
+    <Resource Include="Images\64\go-next-4.png" />
+    <Resource Include="Images\64\hammer.png" />
+    <Resource Include="Images\64\help-contents.png" />
+    <Resource Include="Images\64\help.png" />
+    <Resource Include="Images\64\IntegerIcon.png" />
+    <Resource Include="Images\64\item-delete.png" />
+    <Resource Include="Images\64\item-edit.png" />
+    <Resource Include="Images\64\konqueror-2 add.png" />
+    <Resource Include="Images\64\konqueror-2.png" />
+    <Resource Include="Images\64\korganizer-3 add.png" />
+    <Resource Include="Images\64\korganizer-3.png" />
+    <Resource Include="Images\64\log.png" />
+    <Resource Include="Images\64\mail-send.png" />
+    <Resource Include="Images\64\media-eject-7.png" />
+    <Resource Include="Images\64\media-playback-pause-6.png" />
+    <Resource Include="Images\64\media-playback-pause-8.png" />
+    <Resource Include="Images\64\media-playback-pause.png" />
+    <Resource Include="Images\64\media-playback-start-6.png" />
+    <Resource Include="Images\64\media-playback-start-8.png" />
+    <Resource Include="Images\64\media-playback-stop-8.png" />
+    <Resource Include="Images\64\media-record-6.png" />
+    <Resource Include="Images\64\media-seek-backward-8.png" />
+    <Resource Include="Images\64\media-seek-forward-8.png" />
+    <Resource Include="Images\64\media-skip-backward-8.png" />
+    <Resource Include="Images\64\media-skip-forward-8.png" />
+    <Resource Include="Images\64\message add.png" />
+    <Resource Include="Images\64\message.png" />
+    <Resource Include="Images\64\multimedia-volume-control-2.png" />
+    <Resource Include="Images\64\phone-conference.png" />
+    <Resource Include="Images\64\phone-transfer.png" />
+    <Resource Include="Images\64\save.png" />
+    <Resource Include="Images\64\script-error.png" />
+    <Resource Include="Images\64\system-switch_user-2.png" />
+    <Resource Include="Images\64\TextIcon.png" />
+    <Resource Include="Images\64\user-group-new.png" />
+    <Resource Include="Images\64\user-group.png" />
+    <Resource Include="Images\64\view-refresh-5.png" />
+    <Resource Include="Images\Logo.jpg" />
+    <Resource Include="Images\LogoSmall.jpg" />
+    <Resource Include="Images\WhiteList2.jpg" />
+    <Resource Include="Images\WhiteList3.jpg" />
+    <Resource Include="Images\WhiteList4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EComModule\EComModule.csproj">
+      <Project>{26f3d9a5-68fa-410c-9350-1373bc08ccfc}</Project>
+      <Name>EComModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShopzioModule\ShopzioModule.csproj">
+      <Project>{d6b04bb1-c29f-4a5b-a899-7d09fd1a41f7}</Project>
+      <Name>ShopzioModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpireHL.Core\SpireHL.Core.csproj">
+      <Project>{228106af-758d-4b5c-966a-457fbd6baa94}</Project>
+      <Name>SpireHL.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CatalogModule\CatalogModule.csproj">
+      <Project>{74b09c8b-e7b8-476c-b472-4745cb924bea}</Project>
+      <Name>CatalogModule</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ARx Suite Logo.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>RD /S /Q "$(TargetDir)cs\"
+RD /S /Q "$(TargetDir)da\"
+RD /S /Q "$(TargetDir)de\"
+RD /S /Q "$(TargetDir)es\"
+RD /S /Q "$(TargetDir)fa\"
+RD /S /Q "$(TargetDir)fi\"
+RD /S /Q "$(TargetDir)fr\"
+RD /S /Q "$(TargetDir)it\"
+RD /S /Q "$(TargetDir)ko\"
+RD /S /Q "$(TargetDir)mk\"
+RD /S /Q "$(TargetDir)nl\"
+RD /S /Q "$(TargetDir)pl\"
+RD /S /Q "$(TargetDir)pt\"
+RD /S /Q "$(TargetDir)ru\"
+RD /S /Q "$(TargetDir)sv\"
+RD /S /Q "$(TargetDir)tr\"
+RD /S /Q "$(TargetDir)zh-CN\"
+
+RD /S /Q "$(TargetDir)en\"
+RD /S /Q "$(TargetDir)ja\"
+RD /S /Q "$(TargetDir)zh-Hans\"
+RD /S /Q "$(TargetDir)zh-Hant\"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

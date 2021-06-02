@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="SpireHL.Dialogs.SummaryDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             >
+    <prism:Dialog.WindowStyle>
+        <Style TargetType="Window">
+            <Setter Property="Height"
+                    Value="150" />
+            <Setter Property="Width"
+                    Value="300" />
+            <Setter Property="ResizeMode"
+                    Value="NoResize" />
+            <Setter Property="prism:Dialog.WindowStartupLocation"
+                    Value="CenterScreen" />
+        </Style>
+    </prism:Dialog.WindowStyle>
+
+    <Grid Margin="25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+       
+
+        <StackPanel Grid.Row="0">
+            <TextBlock Grid.Row="3">
+            Click
+            <Hyperlink Command="{Binding ViewFileSaved}"
+                       TextDecorations="">here</Hyperlink>
+            to view the changes saved.
+            </TextBlock>
+        </StackPanel>
+
+        <Button Command="{Binding CloseDialogCommand}"
+                Style="{StaticResource SecondaryButton}"
+                Content="OK"
+                Width="75"
+                Height="25"
+                HorizontalAlignment="Center"
+                Margin="5,10,0,0"
+                Grid.Row="1"
+                IsDefault="True" />
+    </Grid>
+</UserControl>

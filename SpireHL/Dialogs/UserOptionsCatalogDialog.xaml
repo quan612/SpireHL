@@ -1,0 +1,226 @@
+﻿<UserControl x:Class="SpireHL.Dialogs.UserOptionsCatalogDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             >
+    <prism:Dialog.WindowStyle>
+        <Style TargetType="Window">
+            <Setter Property="Height"
+                    Value="500" />
+            <Setter Property="Width"
+                    Value="500" />
+            <Setter Property="ResizeMode"
+                    Value="NoResize" />
+            <Setter Property="prism:Dialog.WindowStartupLocation"
+                    Value="CenterScreen" />
+        </Style>
+    </prism:Dialog.WindowStyle>
+
+    <Grid Margin="25">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <!-- row 0-->
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <CheckBox Name="Price1"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.Price1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="Price 1">
+            </CheckBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0"
+                    Grid.Column="1">
+            <CheckBox Name="Price2"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.Price2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="Price 2">
+            </CheckBox>
+        </StackPanel>
+        <StackPanel Grid.Row="0"
+                    Grid.Column="3">
+            <CheckBox Name="Pctn"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.PcCtn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="PcCtn">
+            </CheckBox>
+        </StackPanel>
+        
+        <!-- row 1-->
+        <StackPanel Grid.Row="1"
+                    Grid.Column="0">
+            <CheckBox Name="UPC"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.UPC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="UPC">
+            </CheckBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1">
+            <CheckBox Name="CubeCtn"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.CubeCtn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="Cube Ctn">
+            </CheckBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="2">
+            <CheckBox Name="CBMCtn"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.CBMCtn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CBM Ctn">
+            </CheckBox>
+        </StackPanel>
+
+        <!-- row 2-->
+        <StackPanel Grid.Row="2"
+                    Grid.Column="0">
+            <CheckBox Name="VendorCode"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.VendorCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="Vendor Code">
+            </CheckBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+                    Grid.Column="1">
+            <CheckBox Name="Description"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="Description">
+            </CheckBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+                    Grid.Column="3">
+            <CheckBox Name="HS"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.HS, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="HS">
+            </CheckBox>
+        </StackPanel>
+
+        <!-- row 3-->
+        <StackPanel Grid.Row="3"
+                    Grid.Column="0">
+            <CheckBox Name="MBox"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.MBox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="MBox">
+            </CheckBox>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="3"
+                    Grid.Column="1">
+            <CheckBox Name="IBox"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.IBox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="IBox">
+            </CheckBox>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="3"
+                    Grid.Column="2">
+            <CheckBox Name="ItemSize"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.ItemSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="Item Size">
+            </CheckBox>
+        </StackPanel>
+
+        <!-- row 4-->
+        <StackPanel Grid.Row="4"
+                    Grid.Column="0">
+            <CheckBox Name="MinOrder"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.MinOrder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="Min Order">
+            </CheckBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4"
+                    Grid.Column="1">
+            <CheckBox Name="CDNTire"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.CDNTire, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CDN">
+            </CheckBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4"
+                    Grid.Column="2">
+            <CheckBox Name="OnOrderQty"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.OnOrderQty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="On Order Qty">
+            </CheckBox>
+        </StackPanel>
+
+        <!-- row 5-->
+        <StackPanel Grid.Row="5"
+                    Grid.Column="0">
+            <CheckBox Name="ProductCode"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.ProductCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="Product Code">
+            </CheckBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5"
+                    Grid.Column="1">
+            <CheckBox Name="MOP"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.MOP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="MOP">
+            </CheckBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5"
+                    Grid.Column="2">
+            <CheckBox Name="InventoryType"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.InventoryType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="Inventory Type">
+            </CheckBox>
+        </StackPanel>
+
+        <!-- row 6-->
+
+        <StackPanel Grid.Row="6"
+                    Grid.Column="0">
+            <CheckBox Name="OnHandQty"
+                      Foreground="Black"
+                      IsChecked="{Binding UserSelect.OnHandQty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="OnHand Qty">
+            </CheckBox>
+        </StackPanel>
+
+        <!-- row 7-->
+        <Button Command="{Binding CloseDialogCommand}"
+                Style="{StaticResource SecondaryButton}"
+                Content="OK"
+                Width="75"
+                Height="25"
+                HorizontalAlignment="Center"
+                Margin="5,10,0,0"
+                Grid.Row="7"
+                IsDefault="True" />
+    </Grid>
+</UserControl>

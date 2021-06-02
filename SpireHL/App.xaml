@@ -1,0 +1,23 @@
+﻿<prism:PrismApplication x:Class="SpireHL.App"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:local="clr-namespace:SpireHL"
+                        xmlns:prism="http://prismlibrary.com/"
+>
+    <Application.Resources>
+        <ResourceDictionary>
+            <BitmapImage x:Key="ButtonImage"
+                         UriSource="/SpireHL;component/Images/WhiteList4.jpg" />
+            <BitmapImage x:Key="CloseViewIcon"
+                         UriSource="/SpireHL;component/Images/16/WindowClose.png" />
+            <BitmapImage x:Key="WarningIcon"
+                         UriSource="/SpireHL;component/Images/128/dialog-warning.png" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/Button.xaml" />
+                <ResourceDictionary Source="Themes/DataGrid.xaml" />
+                <!--<ResourceDictionary Source="/SpireHL;component/Themes/DataGrid.xaml" />-->
+                <ResourceDictionary Source="Themes/Textbox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</prism:PrismApplication>

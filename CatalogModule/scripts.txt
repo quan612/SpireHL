@@ -1,0 +1,8 @@
+﻿CREATE TABLE spireHLSettings
+(
+    id serial NOT NULL,
+    Module character varying(200),
+    Section character varying(200) ,
+    ParameterName character varying(200),
+	ParameterValue character varying(200)  
+);
